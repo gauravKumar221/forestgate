@@ -108,16 +108,12 @@ export default function LoginPage() {
 
     function onOtpSubmit(data) {
         console.log("OTP submitted:", data.pin);
-        // Dummy validation
-        if (data.pin === '123456') {
-             toast({
-                title: "Success!",
-                description: "Password has been reset successfully. (This is a demo)",
-            });
-            setIsDialogOpen(false);
-        } else {
-            otpForm.setError("pin", { type: "manual", message: "Invalid OTP. Please try again." });
-        }
+        // Dummy validation for demo purposes - always succeeds
+        toast({
+            title: "Success!",
+            description: "Password has been reset successfully. (This is a demo)",
+        });
+        setIsDialogOpen(false);
     }
 
 
