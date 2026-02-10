@@ -43,11 +43,12 @@ export default function AdminDashboardLayout({
   const { toast } = useToast();
 
   const handleLogout = () => {
+    // In a real app, you'd clear the session/token here
     toast({
       title: 'Logged Out',
       description: 'You have been successfully logged out.',
     });
-    router.push('/');
+    router.push('/admin-login');
   };
 
   return (
