@@ -28,6 +28,9 @@ const RegisterFormSchema = z.object({
     email: z.string().email({
       message: "Please enter a valid email address.",
     }),
+    phone: z.string().min(10, {
+        message: "Please enter a valid 10-digit phone number.",
+    }),
     password: z.string().min(6, {
         message: "Password must be at least 6 characters."
     })
@@ -40,7 +43,7 @@ export default function RegisterPage() {
     
     const form = useForm({
         resolver: zodResolver(RegisterFormSchema),
-        defaultValues: { name: "", email: "", password: "" },
+        defaultValues: { name: "", email: "", phone: "", password: "" },
     });
 
     async function onRegisterSubmit(data) {
@@ -72,6 +75,7 @@ export default function RegisterPage() {
                                 <form onSubmit={form.handleSubmit(onRegisterSubmit)} className="space-y-6">
                                     <FormField control={form.control} name="name" render={({ field }) => ( <FormItem> <FormLabel>Full Name</FormLabel> <FormControl><Input placeholder="John Doe" {...field} /></FormControl> <FormMessage /> </FormItem> )} />
                                     <FormField control={form.control} name="email" render={({ field }) => ( <FormItem> <FormLabel>Email</FormLabel> <FormControl><Input type="email" placeholder="you@example.com" {...field} /></FormControl> <FormMessage /> </FormItem> )} />
+                                    <FormField control={form.control} name="phone" render={({ field }) => ( <FormItem> <FormLabel>Phone Number</FormLabel> <FormControl><Input type="tel" placeholder="Your phone number" {...field} /></FormControl> <FormMessage /> </FormItem> )} />
                                     <FormField control={form.control} name="password" render={({ field }) => ( <FormItem> <FormLabel>Password</FormLabel> <FormControl><Input type="password" {...field} /></FormControl> <FormMessage /> </FormItem> )} />
                                     <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
                                         {form.formState.isSubmitting ? 'Registering...' : 'Register'}
