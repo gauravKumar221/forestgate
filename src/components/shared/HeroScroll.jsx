@@ -24,7 +24,7 @@ export function HeroScroll() {
   return (
     <section
       ref={ref}
-      className="h-[200vh] bg-white overflow-hidden"
+      className="h-[120vh] bg-white overflow-hidden"
     >
         <div className="sticky top-0 h-screen flex items-center justify-center">
             <div className="relative w-[80vw] max-w-5xl flex items-center justify-center">
