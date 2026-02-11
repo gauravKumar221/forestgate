@@ -3,14 +3,14 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function HeroScroll() {
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start center", "end center"],
+    offset: ["start start", "end end"],
   });
 
   const imageScale = useTransform(scrollYProgress, [0, 0.5], [0.6, 1]);
@@ -29,6 +29,25 @@ export function HeroScroll() {
         <div className="sticky top-0 h-screen flex items-center justify-center">
             <div className="relative w-[80vw] max-w-5xl flex items-center justify-center">
                 
+                {/* Image is now first in the DOM, so it's in the background */}
+                <motion.div
+                style={{
+                    scale: imageScale,
+                    opacity: imageOpacity,
+                }}
+                className="absolute w-[300px] h-[400px] md:w-[400px] md:h-[550px]"
+                >
+                {heroImage && (
+                    <Image
+                        src={heroImage.imageUrl}
+                        alt={heroImage.description || "Planet"}
+                        fill
+                        className="object-cover rounded-lg"
+                        data-ai-hint={heroImage.imageHint}
+                    />
+                )}
+                </motion.div>
+
                 {/* Left Text */}
                 <motion.div
                 style={{ x: leftTextX }}
@@ -49,24 +68,6 @@ export function HeroScroll() {
                 </h1>
                 </motion.div>
 
-                {/* Image */}
-                <motion.div
-                style={{
-                    scale: imageScale,
-                    opacity: imageOpacity,
-                }}
-                className="absolute w-[300px] h-[400px] md:w-[400px] md:h-[550px] z-10"
-                >
-                {heroImage && (
-                    <Image
-                        src={heroImage.imageUrl}
-                        alt={heroImage.description || "Planet"}
-                        fill
-                        className="object-cover rounded-lg"
-                        data-ai-hint={heroImage.imageHint}
-                    />
-                )}
-                </motion.div>
             </div>
       </div>
     </section>
