@@ -43,7 +43,7 @@ export function HeroScroll() {
                 {heroImage && (
                     <Image
                         src={heroImage.imageUrl}
-                        alt={heroImage.description || "Planet"}
+                        alt={heroImage.description || "The Forest Gate"}
                         fill
                         className="object-cover rounded-lg"
                         data-ai-hint={heroImage.imageHint}
@@ -59,7 +59,7 @@ export function HeroScroll() {
                 className="w-1/2 flex justify-end pr-4 md:pr-8"
                 >
                 <h1 className="text-5xl md:text-7xl font-light text-black">
-                    for the
+                    the forest
                 </h1>
                 </motion.div>
 
@@ -69,7 +69,7 @@ export function HeroScroll() {
                 className="w-1/2 flex justify-start pl-4 md:pl-8"
                 >
                 <h1 className="text-5xl md:text-7xl font-light text-black">
-                    planet
+                    gate
                 </h1>
                 </motion.div>
 
