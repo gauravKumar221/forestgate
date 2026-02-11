@@ -22,6 +22,7 @@ import {
   Search,
   Bell,
   Mail,
+  Contact,
 } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useToast } from '@/hooks/use-toast';
@@ -101,6 +102,19 @@ export default function AdminDashboardLayout({
                   <Link href="/admin-dashboard/subscribers">
                     <Mail />
                     <span className='group-data-[state=collapsed]:hidden'>Subscribers</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={pathname === '/admin-dashboard/contacts'}
+                  tooltip="Contacts"
+                  className="justify-start group-data-[state=collapsed]:justify-center"
+                >
+                  <Link href="/admin-dashboard/contacts">
+                    <Contact />
+                    <span className='group-data-[state=collapsed]:hidden'>Contacts</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
