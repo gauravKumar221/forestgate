@@ -1,4 +1,5 @@
 
+
 import { Card, CardContent } from "@/components/ui/card"
 import { testimonials } from "@/app/lib/data"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -65,3 +66,5 @@ export function Testimonials() {
       </section>
     )
 }
+
+    
